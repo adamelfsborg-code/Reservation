@@ -34,10 +34,14 @@ class PinCategory(APIView):
             return JsonResponse({'msg': 'category pinned'}, status=status.HTTP_200_OK)
         return JsonResponse({'msg': 'category not pinned'}, status=status.HTTP_400_BAD_REQUEST)
 
-class EditPinnedCategory(APIView):
-    def put(self, request, format=None):
-        pass
-
 class DeletePinnedCategory(APIView):
     def delete(self, request, format=None):
-        pass
+        id = request.data.get('user_id')
+
+        d = DeletePinnedCategory()
+        deletePinnedCategory = d.delete(id)
+
+        if deletePinnedCategory != '400':
+            return JsonResponse({'msg': 'category unpinned'}, status=status.HTTP_200_OK)
+        return JsonResponse({'msg': 'pinned not unpinned'}, status=status.HTTP_400_BAD_REQUEST)
+

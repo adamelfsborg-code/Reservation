@@ -48,3 +48,15 @@ class PinCategory:
         if 'no results to fetch' in pinCategory:
             return '200'
         return '400'
+
+class DeletePinnedCategory:
+    def delete(self, id):
+        sql = "DELETE FROM pinned_categories WHERE id={id}"
+        sqldata = ()
+
+        c = db.Cursor('reservate', sql, sqldata)
+        deletePinnedCategory = c.connect()
+
+        if 'no results to fetch' in deletePinnedCategory:
+            return '200'
+        return '400'
