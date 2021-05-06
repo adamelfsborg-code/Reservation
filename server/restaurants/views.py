@@ -8,7 +8,7 @@ import json
 import bcrypt
 from .utils import *
 
-class GetRestaurantsByCategory:
+class GetRestaurantsByCategory(APIView):
     def get(self, request, format=None):
         id = request.GET.get('id')
 
@@ -19,7 +19,7 @@ class GetRestaurantsByCategory:
             return JsonResponse({'msg': getRestaurantsByCategory}, status=status.HTTP_200_OK)
         return JsonResponse({'msg': 'Restaurants not found'}, status=status.HTTP_404_NOT_FOUND)
 
-class GetNearestRestaurants:
+class GetNearestRestaurants(APIView):
     def get(self, request, format=None):
         id = request.GET.get('id')
 
