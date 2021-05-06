@@ -9,7 +9,7 @@ import bcrypt
 from .utils import *
 
 
-class ReservateTable:
+class ReservateTable(APIView):
     def post(self, request, format=None):
         id = request.GET.get('id')
         user_id = request.GET.get('user_id')
@@ -24,5 +24,4 @@ class ReservateTable:
         if reservateTable != '404':
             return JsonResponse({'msg': 'Table reservated'}, status=status.HTTP_200_OK)
         return JsonResponse({'msg': 'Table not reservated'}, status=status.HTTP_404_NOT_FOUND)
-        
-               
+
