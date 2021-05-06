@@ -37,8 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'categories.apps.CategoriesConfig',
+    'feedback.apps.FeedbackConfig',
+    'menus.apps.MenusConfig',
+    'reservation.apps.ReservationConfig',
+    'restaurants.apps.RestaurantsConfig',
+    'tables.apps.TablesConfig',
     'users.apps.UsersConfig',
-    'categories.apps.CategoriesConfig'
 ]
 
 MIDDLEWARE = [
